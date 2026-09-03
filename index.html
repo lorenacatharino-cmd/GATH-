@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GATH | Carros Elétricos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="accessibility-bar" aria-label="Controles de acessibilidade">
+    <button id="btn-theme" aria-label="Alternar modo claro e escuro">Modo Escuro</button>
+    <button id="btn-increase" aria-label="Aumentar tamanho do texto">A+</button>
+    <button id="btn-decrease" aria-label="Diminuir tamanho do texto">A-</button>
+    <button id="btn-reset" aria-label="Restaurar tamanho do texto original">A</button>
+  </section>
+
+  <header>
+    <div class="logo">GATH<span>.</span></div>
+    <nav aria-label="Navegação principal">
+      <a href="#modelos">Modelos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>O Futuro da Mobilidade Elétrica</h1>
+      <p>Aceleração, sustentabilidade e alta tecnologia com a assinatura GATH.</p>
+    </section>
+
+    <section id="modelos" class="products" aria-label="Catálogo de veículos">
+      <article class="product-card">
+        <h2>GATH Model E1</h2>
+        <p>Autonomia de 450 km | 0-100 km/h em 4.5s</p>
+        <p class="price">R$ 280.000,00</p>
+        <button class="btn-buy" data-model="GATH Model E1">Comprar Agora</button>
+      </article>
+
+      <article class="product-card">
+        <h2>GATH Sport X</h2>
+        <p>Autonomia de 600 km | 0-100 km/h em 2.8s</p>
+        <p class="price">R$ 450.000,00</p>
+        <button class="btn-buy" data-model="GATH Sport X">Comprar Agora</button>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 GATH Carros Elétricos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
