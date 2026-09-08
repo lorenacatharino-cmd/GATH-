@@ -3,52 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GATH | Carros Elétricos</title>
-  <link rel="stylesheet" href="style.css">
+  <title>GATH - Mobilidade Elétrica do Futuro</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <section class="accessibility-bar" aria-label="Controles de acessibilidade">
-    <button id="btn-theme" aria-label="Alternar modo claro e escuro">Modo Escuro</button>
-    <button id="btn-increase" aria-label="Aumentar tamanho do texto">A+</button>
-    <button id="btn-decrease" aria-label="Diminuir tamanho do texto">A-</button>
-    <button id="btn-reset" aria-label="Restaurar tamanho do texto original">A</button>
-  </section>
+  <!-- BARRA DE ACESSIBILIDADE FIXA -->
+  <aside class="accessibility-bar" aria-label="Ferramentas de Acessibilidade">
+    <button id="btn-increase-font" title="Aumentar Fonte" aria-label="Aumentar Fonte"><i class="fa-solid fa-font"></i> A+</button>
+    <button id="btn-decrease-font" title="Diminuir Fonte" aria-label="Diminuir Fonte"><i class="fa-solid fa-font"></i> A-</button>
+    <button id="btn-toggle-contrast" title="Alto Contraste" aria-label="Alternar Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
+    <button id="btn-toggle-light" title="Aumentar/Diminuir Luz" aria-label="Ajustar Luz da Tela"><i class="fa-solid fa-sun"></i> Luz</button>
+    <button id="btn-read-screen" title="Ler Texto Selecionado" aria-label="Ouvir Texto"><i class="fa-solid fa-volume-high"></i> Ouvir Texto</button>
+  </aside>
 
-  <header>
-    <div class="logo">GATH<span>.</span></div>
-    <nav aria-label="Navegação principal">
-      <a href="#modelos">Modelos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+  <!-- CABEÇALHO -->
+  <header class="navbar">
+    <div class="logo">
+      <h1>GATH<span>.</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#modelos">Modelos</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#sobre">Sobre a GATH</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>O Futuro da Mobilidade Elétrica</h1>
-      <p>Aceleração, sustentabilidade e alta tecnologia com a assinatura GATH.</p>
-    </section>
+  <!-- HERO / BANNER PRINCIPAL -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>O Futuro Conduz Você.</h2>
+      <p>Performance, sofisticação e sustentabilidade em 100% elétricos.</p>
+      <a href="#modelos" class="btn-primary">Ver Modelos Disponíveis</a>
+    </div>
+  </section>
 
-    <section id="modelos" class="products" aria-label="Catálogo de veículos">
-      <article class="product-card">
-        <h2>GATH Model E1</h2>
-        <p>Autonomia de 450 km | 0-100 km/h em 4.5s</p>
-        <p class="price">R$ 280.000,00</p>
-        <button class="btn-buy" data-model="GATH Model E1">Comprar Agora</button>
+  <!-- CATÁLOGO DE CARROS (6 OPÇÕES) -->
+  <section id="modelos" class="catalog">
+    <h2 class="section-title">Escolha Seu Modelo <span>GATH</span></h2>
+    <div class="grid-cars">
+
+      <!-- Carro 1 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" alt="GATH Model S Sedan Elétrico Preto">
+        <div class="car-info">
+          <h3>GATH Model S</h3>
+          <p class="specs">Autonomia: 520 km | 0-100 km/h: 3.2s</p>
+          <p class="price">R$ 299.900</p>
+          <button class="btn-buy" onclick="openModal('GATH Model S', 'R$ 299.900')">Comprar Agora</button>
+        </div>
       </article>
 
-      <article class="product-card">
-        <h2>GATH Sport X</h2>
-        <p>Autonomia de 600 km | 0-100 km/h em 2.8s</p>
-        <p class="price">R$ 450.000,00</p>
-        <button class="btn-buy" data-model="GATH Sport X">Comprar Agora</button>
+      <!-- Carro 2 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=600&q=80" alt="GATH SUV X Elétrico Vermelho">
+        <div class="car-info">
+          <h3>GATH SUV X</h3>
+          <p class="specs">Autonomia: 480 km | Tração Integral AWD</p>
+          <p class="price">R$ 349.900</p>
+          <button class="btn-buy" onclick="openModal('GATH SUV X', 'R$ 349.900')">Comprar Agora</button>
+        </div>
       </article>
-    </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2026 GATH Carros Elétricos. Todos os direitos reservados.</p>
+      <!-- Carro 3 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="GATH GT Sport Carro Elétrico de Alta Performance Cinza">
+        <div class="car-info">
+          <h3>GATH GT Sport</h3>
+          <p class="specs">Autonomia: 450 km | 0-100 km/h: 2.8s</p>
+          <p class="price">R$ 489.900</p>
+          <button class="btn-buy" onclick="openModal('GATH GT Sport', 'R$ 489.900')">Comprar Agora</button>
+        </div>
+      </article>
+
+      <!-- Carro 4 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1541348263662-e082662d82da?auto=format&fit=crop&w=600&q=80" alt="GATH Urban Compact Hatchback Elétrico Branco">
+        <div class="car-info">
+          <h3>GATH Urban Compact</h3>
+          <p class="specs">Autonomia: 350 km | Perfeito para Cidade</p>
+          <p class="price">R$ 159.900</p>
+          <button class="btn-buy" onclick="openModal('GATH Urban Compact', 'R$ 159.900')">Comprar Agora</button>
+        </div>
+      </article>
+
+      <!-- Carro 5 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&q=80" alt="GATH Executive Crossover Elétrico Preto">
+        <div class="car-info">
+          <h3>GATH Executive</h3>
+          <p class="specs">Autonomia: 600 km | Piloto Automático Nível 3</p>
+          <p class="price">R$ 410.000</p>
+          <button class="btn-buy" onclick="openModal('GATH Executive', 'R$ 410.000')">Comprar Agora</button>
+        </div>
+      </article>
+
+      <!-- Carro 6 -->
+      <article class="car-card">
+        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="GATH Cyber Truck Picape Elétrica Cinza Escuro">
+        <div class="car-info">
+          <h3>GATH Cyber Truck</h3>
+          <p class="specs">Autonomia: 650 km | Capacidade Carga 1.5 Ton</p>
+          <p class="price">R$ 520.000</p>
+          <button class="btn-buy" onclick="openModal('GATH Cyber Truck', 'R$ 520.000')">Comprar Agora</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" class="benefits">
+    <h2 class="section-title">Por que Escolher um <span>GATH Elétrico</span>?</h2>
+    <div class="grid-benefits">
+      <div class="benefit-card">
+        <i class="fa-solid fa-leaf"></i>
+        <h3>Zero Emissões</h3>
+        <p>Contribua ativamente para o planeta dirigindo veículos livres de CO2.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Economia Recorrente</h3>
+        <p>O custo por km rodado na energia elétrica chega a ser 80% menor que o combustível.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <h3>Baixa Manutenção</h3>
+        <p>Sem troca de óleo, sem velas, sem correias. Menos revisões e maior vida útil.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-gauge-high"></i>
+        <h3>Torque Instantâneo</h3>
+        <p>Aceleração imediata ao toque do pedal com respostas rápidas e silenciosas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A EMPRESA GATH -->
+  <section id="sobre" class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Sobre a <span>GATH</span></h2>
+        <p>A <strong>GATH</strong> nasceu da visão de transformar a mobilidade urbana no Brasil e no mundo. Projetamos veículos que unem tecnologia de ponta, design esportivo e compromisso com o meio ambiente.</p>
+        <p>Nossa missão é acelerar a transição global para a energia sustentável, oferecendo carros altamente seguros, velozes e conectados.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1558441719-aa34bf52f246?auto=format&fit=crop&w=600&q=80" alt="Estação de Recarga Elétrica GATH">
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE COMPRA -->
+  <div id="buy-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title">Finalizar Pedido: <span id="modal-car-name"></span></h3>
+      <p id="modal-car-price" class="modal-price"></p>
+      
+      <form id="purchase-form" onsubmit="handlePurchase(event)">
+        <label for="name">Nome Completo:</label>
+        <input type="text" id="name" required placeholder="Digite seu nome">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required placeholder="seu@email.com">
+
+        <label for="phone">Telefone / WhatsApp:</label>
+        <input type="tel" id="phone" required placeholder="(00) 00000-0000">
+
+        <button type="submit" class="btn-primary">Confirmar Reserva</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer id="contato">
+    <div class="footer-content">
+      <p>&copy; 2026 GATH Motors. Todos os direitos reservados.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
