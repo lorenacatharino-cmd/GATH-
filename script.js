@@ -1,55 +1,85 @@
-// script.js
+// --- CONTROLE DE ACESSIBILIDADE ---
 
-// Controle do Tema (Claro / Noturno)
-const btnTheme = document.getElementById('btn-theme');
+let currentFontSize = 100; // Tamanho base da fonte em %
+const body = document.body;
 
-btnTheme.addEventListener('click', () => {
-  const body = document.body;
-  if (body.getAttribute('data-theme') === 'dark') {
-    body.removeAttribute('data-theme');
-    btnTheme.innerText = 'Modo Escuro';
-  } else {
-    body.setAttribute('data-theme', 'dark');
-    btnTheme.innerText = 'Modo Claro';
+// 1. Aumentar Fonte
+document.getElementById('btn-increase-font').addEventListener('click', () => {
+  if (currentFontSize < 140) {
+    currentFontSize += 10;
+    document.documentElement.style.fontSize = `${currentFontSize}%`;
   }
 });
 
-// Controle do Tamanho da Fonte
-let currentFontSize = 16;
+// 2. Diminuir Fonte
+document.getElementById('btn-decrease-font').addEventListener('click', () => {
+  if (currentFontSize > 80) {
+    currentFontSize -= 10;
+    document.documentElement.style.fontSize = `${currentFontSize}%`;
+  }
+});
 
-const btnIncrease = document.getElementById('btn-increase');
-const btnDecrease = document.getElementById('btn-decrease');
-const btnReset = document.getElementById('btn-reset');
+// 3. Alternar Alto Contraste
+document.getElementById('btn-toggle-contrast').addEventListener('click', () => {
+  body.classList.toggle('high-contrast');
+});
 
-function setFontSize(size) {
-  document.documentElement.style.setProperty('--font-size-base', size + 'px');
+// 4. Ajustar Luz / Brilho da Tela
+document.getElementById('btn-toggle-light').addEventListener('click', () => {
+  body.classList.toggle('dim-light');
+});
+
+// 5. Leitor de Tela (Sintetizador de Voz para texto selecionado)
+document.getElementById('btn-read-screen').addEventListener('click', () => {
+  const selectedText = window.getSelection().toString();
+  
+  if (selectedText) {
+    const utterance = new SpeechSynthesisUtterance(selectedText);
+    utterance.lang = 'pt-BR';
+    window.speechSynthesis.speak(utterance);
+  } else {
+    const defaultText = "Selecione qualquer texto da página com o mouse para ouvir a leitura.";
+    const utterance = new SpeechSynthesisUtterance(defaultText);
+    utterance.lang = 'pt-BR';
+    window.speechSynthesis.speak(utterance);
+  }
+});
+
+
+// --- LÓGICA DO MODAL DE COMPRA ---
+
+const modal = document.getElementById('buy-modal');
+const modalCarName = document.getElementById('modal-car-name');
+const modalCarPrice = document.getElementById('modal-car-price');
+
+function openModal(carName, carPrice) {
+  modalCarName.textContent = carName;
+  modalCarPrice.textContent = carPrice;
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
 }
 
-btnIncrease.addEventListener('click', () => {
-  if (currentFontSize < 24) {
-    currentFontSize += 2;
-    setFontSize(currentFontSize);
+function closeModal() {
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+// Fechar ao clicar fora do modal
+window.onclick = function(event) {
+  if (event.target === modal) {
+    closeModal();
   }
-});
+};
 
-btnDecrease.addEventListener('click', () => {
-  if (currentFontSize > 12) {
-    currentFontSize -= 2;
-    setFontSize(currentFontSize);
-  }
-});
-
-btnReset.addEventListener('click', () => {
-  currentFontSize = 16;
-  setFontSize(currentFontSize);
-});
-
-// Simulação da Ação de Compra
-const buyButtons = document.querySelectorAll('.btn-buy');
-
-buyButtons.forEach(button => {
-  button.addEventListener('click', (event) => {
-    const modelName = event.target.getAttribute('data-model');
-    alert(`Obrigado pelo interesse no ${modelName}! Você será redirecionado para a etapa de pagamento.`);
-  });
-});
+// Processar formulário de compra
+function handlePurchase(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const car = modalCarName.textContent;
+  
+  alert(`Obrigado, ${name}! Seu pedido de reserva do ${car} foi enviado com sucesso. Nossa equipe entrará em contato em breve.`);
+  
+  // Limpar e fechar
+  document.getElementById('purchase-form').reset();
+  closeModal();
+}
