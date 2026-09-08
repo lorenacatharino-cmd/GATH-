@@ -1,8 +1,7 @@
-// --- SISTEMA DE ACESSIBILIDADE ---
+// --- FUNCIONALIDADES DE ACESSIBILIDADE ---
 let currentFontSize = 100;
 const body = document.body;
 
-// Aumentar Fonte
 document.getElementById('btn-increase-font').addEventListener('click', () => {
   if (currentFontSize < 130) {
     currentFontSize += 10;
@@ -10,7 +9,6 @@ document.getElementById('btn-increase-font').addEventListener('click', () => {
   }
 });
 
-// Diminuir Fonte
 document.getElementById('btn-decrease-font').addEventListener('click', () => {
   if (currentFontSize > 85) {
     currentFontSize -= 10;
@@ -18,17 +16,14 @@ document.getElementById('btn-decrease-font').addEventListener('click', () => {
   }
 });
 
-// Alternar Alto Contraste
 document.getElementById('btn-toggle-contrast').addEventListener('click', () => {
   body.classList.toggle('high-contrast');
 });
 
-// Modo Brilho/Luz
 document.getElementById('btn-toggle-light').addEventListener('click', () => {
   body.classList.toggle('dim-light');
 });
 
-// Leitor de Voz para Texto Selecionado
 document.getElementById('btn-read-screen').addEventListener('click', () => {
   const selectedText = window.getSelection().toString();
   
@@ -37,7 +32,7 @@ document.getElementById('btn-read-screen').addEventListener('click', () => {
     utterance.lang = 'pt-BR';
     window.speechSynthesis.speak(utterance);
   } else {
-    const defaultText = "Por favor, selecione qualquer trecho de texto da página para utilizar a leitura por voz.";
+    const defaultText = "Selecione o texto que deseja ouvir na página.";
     const utterance = new SpeechSynthesisUtterance(defaultText);
     utterance.lang = 'pt-BR';
     window.speechSynthesis.speak(utterance);
@@ -72,7 +67,7 @@ function handlePurchase(event) {
   const name = document.getElementById('name').value;
   const car = modalCarName.textContent;
   
-  alert(`Solicitação confirmada, ${name}! Um especialista da GATH entrará em contato para agendar o atendimento do seu ${car}.`);
+  alert(`Reserva efetuada com sucesso, ${name}! A equipe GATH Motors entrará em contato para agendar o test-drive e os detalhes do ${car}.`);
   
   document.getElementById('purchase-form').reset();
   closeModal();
