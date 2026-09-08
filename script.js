@@ -1,35 +1,34 @@
-// --- CONTROLE DE ACESSIBILIDADE ---
-
-let currentFontSize = 100; // Tamanho base da fonte em %
+// --- SISTEMA DE ACESSIBILIDADE ---
+let currentFontSize = 100;
 const body = document.body;
 
-// 1. Aumentar Fonte
+// Aumentar Fonte
 document.getElementById('btn-increase-font').addEventListener('click', () => {
-  if (currentFontSize < 140) {
+  if (currentFontSize < 130) {
     currentFontSize += 10;
     document.documentElement.style.fontSize = `${currentFontSize}%`;
   }
 });
 
-// 2. Diminuir Fonte
+// Diminuir Fonte
 document.getElementById('btn-decrease-font').addEventListener('click', () => {
-  if (currentFontSize > 80) {
+  if (currentFontSize > 85) {
     currentFontSize -= 10;
     document.documentElement.style.fontSize = `${currentFontSize}%`;
   }
 });
 
-// 3. Alternar Alto Contraste
+// Alternar Alto Contraste
 document.getElementById('btn-toggle-contrast').addEventListener('click', () => {
   body.classList.toggle('high-contrast');
 });
 
-// 4. Ajustar Luz / Brilho da Tela
+// Modo Brilho/Luz
 document.getElementById('btn-toggle-light').addEventListener('click', () => {
   body.classList.toggle('dim-light');
 });
 
-// 5. Leitor de Tela (Sintetizador de Voz para texto selecionado)
+// Leitor de Voz para Texto Selecionado
 document.getElementById('btn-read-screen').addEventListener('click', () => {
   const selectedText = window.getSelection().toString();
   
@@ -38,16 +37,14 @@ document.getElementById('btn-read-screen').addEventListener('click', () => {
     utterance.lang = 'pt-BR';
     window.speechSynthesis.speak(utterance);
   } else {
-    const defaultText = "Selecione qualquer texto da página com o mouse para ouvir a leitura.";
+    const defaultText = "Por favor, selecione qualquer trecho de texto da página para utilizar a leitura por voz.";
     const utterance = new SpeechSynthesisUtterance(defaultText);
     utterance.lang = 'pt-BR';
     window.speechSynthesis.speak(utterance);
   }
 });
 
-
-// --- LÓGICA DO MODAL DE COMPRA ---
-
+// --- LÓGICA DO MODAL ---
 const modal = document.getElementById('buy-modal');
 const modalCarName = document.getElementById('modal-car-name');
 const modalCarPrice = document.getElementById('modal-car-price');
@@ -64,22 +61,19 @@ function closeModal() {
   modal.setAttribute('aria-hidden', 'true');
 }
 
-// Fechar ao clicar fora do modal
 window.onclick = function(event) {
   if (event.target === modal) {
     closeModal();
   }
 };
 
-// Processar formulário de compra
 function handlePurchase(event) {
   event.preventDefault();
   const name = document.getElementById('name').value;
   const car = modalCarName.textContent;
   
-  alert(`Obrigado, ${name}! Seu pedido de reserva do ${car} foi enviado com sucesso. Nossa equipe entrará em contato em breve.`);
+  alert(`Solicitação confirmada, ${name}! Um especialista da GATH entrará em contato para agendar o atendimento do seu ${car}.`);
   
-  // Limpar e fechar
   document.getElementById('purchase-form').reset();
   closeModal();
 }
