@@ -1,301 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GATH Motors | High-Performance Electric Vehicles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATH - Mobilidade Elétrica e do Futuro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- DOCK DE ACESSIBILIDADE FLUTUANTE (DESIGN MODERNO) -->
-  <div class="acc-dock" role="region" aria-label="Acessibilidade">
-    <button id="btn-increase-font" title="Aumentar Texto" aria-label="Aumentar Fonte">A+</button>
-    <button id="btn-decrease-font" title="Diminuir Texto" aria-label="Diminuir Fonte">A-</button>
-    <button id="btn-toggle-contrast" title="Alto Contraste" aria-label="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i></button>
-    <button id="btn-toggle-light" title="Ajustar Brilho" aria-label="Modo Luz"><i class="fa-solid fa-sun"></i></button>
-    <button id="btn-read-screen" title="Ouvir Texto Selecionado" aria-label="Ouvir texto"><i class="fa-solid fa-volume-high"></i></button>
-  </div>
-
-  <!-- HEADER VIDRO GLASSMORPHISM -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo">
-        <span class="logo-mark">G</span>ATH<span class="dot">.</span>
-      </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Início</a></li>
-          <li><a href="#modelos">Modelos</a></li>
-          <li><a href="#beneficios">Vantagens</a></li>
-          <li><a href="#sobre">A Marca</a></li>
-        </ul>
-      </nav>
-      <a href="#modelos" class="btn-glow">Explorar Garagem</a>
-    </div>
-  </header>
-
-  <!-- HERO CINEMATOGRÁFICO -->
-  <section id="home" class="hero">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-badge"><i class="fa-solid fa-bolt"></i> O FUTURO É ELÉTRICO</div>
-      <h1>Engenharia Absoluta.<br><span class="gradient-text">Zero Emissões.</span></h1>
-      <p>Projetados para ultrapassar limites de velocidade, conforto e tecnologia autônoma.</p>
-      <div class="hero-actions">
-        <a href="#modelos" class="btn-primary">Conhecer Modelos <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#sobre" class="btn-glass">Sobre a GATH</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOSTRUÁRIO DE CARROS (CARDS COM GLOW E BADGES) -->
-  <section id="modelos" class="catalog">
-    <div class="section-header">
-      <span class="sub-title">FROTA GATH 2026</span>
-      <h2>Escolha Sua Máquina</h2>
-      <p class="section-desc">Pressione um modelo para visualizar especificações e reservar.</p>
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <span>Acessibilidade:</span>
+        <button id="btn-font-increase" aria-label="Aumentar Fonte">A+</button>
+        <button id="btn-font-decrease" aria-label="Diminuir Fonte">A-</button>
+        <button id="btn-contrast" aria-label="Alternar Alto Contraste">Modo Escuro / Claro</button>
     </div>
 
-    <div class="grid-cars">
-      
-      <!-- Card 1 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80" alt="GATH Model S Sedan">
-          <span class="car-badge">Performance</span>
-        </div>
-        <div class="car-body">
-          <h3>GATH Model S</h3>
-          <p class="car-type">Sedan Esportivo 100% Elétrico</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-gauge"></i> 3.2s 0-100</span>
-            <span><i class="fa-solid fa-charging-station"></i> 520 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 299.900</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH Model S', 'R$ 299.900')">Comprar</button>
-          </div>
-        </div>
-      </article>
+    <!-- Cabeçalho / Navegação -->
+    <header class="navbar">
+        <div class="logo">GATH</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <!-- Card 2 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=800&q=80" alt="GATH SUV X">
-          <span class="car-badge">AWD</span>
+    <!-- Seção Principal / Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sinta o Futuro da Mobilidade com a GATH</h1>
+            <p>100% Elétricos. Zero Emissões. Alta Performance.</p>
+            <a href="#modelos" class="btn-primary">Conheça Nossos Modelos</a>
         </div>
-        <div class="car-body">
-          <h3>GATH SUV X</h3>
-          <p class="car-type">SUV Familiar de Alta Potência</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-shield"></i> Tração Total</span>
-            <span><i class="fa-solid fa-charging-station"></i> 480 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 349.900</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH SUV X', 'R$ 349.900')">Comprar</button>
-          </div>
-        </div>
-      </article>
+    </section>
 
-      <!-- Card 3 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="GATH GT Sport">
-          <span class="car-badge highlight">Track Ready</span>
-        </div>
-        <div class="car-body">
-          <h3>GATH GT Sport</h3>
-          <p class="car-type">Hypercar elétrico aerodinâmico</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-bolt"></i> 2.8s 0-100</span>
-            <span><i class="fa-solid fa-charging-station"></i> 450 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 489.900</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH GT Sport', 'R$ 489.900')">Comprar</button>
-          </div>
-        </div>
-      </article>
+    <!-- Catálogo de Veículos (Mínimo 5 opções) -->
+    <section id="modelos" class="catalog">
+        <h2>Nossa Linha de Veículos</h2>
+        <div class="car-grid">
 
-      <!-- Card 4 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1541348263662-e082662d82da?auto=format&fit=crop&w=800&q=80" alt="GATH Urban Compact">
-          <span class="car-badge">City</span>
-        </div>
-        <div class="car-body">
-          <h3>GATH Urban Compact</h3>
-          <p class="car-type">Hatch Mobilidade Urbana</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-city"></i> Ágil & Leve</span>
-            <span><i class="fa-solid fa-charging-station"></i> 350 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 159.900</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH Urban Compact', 'R$ 159.900')">Comprar</button>
-          </div>
-        </div>
-      </article>
+            <!-- Carro 1 -->
+            <article class="car-card">
+                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" alt="GATH Pulse - Sedan elétrico azul de luxo em alta velocidade">
+                <div class="car-info">
+                    <h3>GATH Pulse</h3>
+                    <p class="car-type">Sedan Esportivo</p>
+                    <p class="car-specs">Autonomia: 520 km | 0 a 100 km/h: 3.8s</p>
+                    <span class="price">R$ 280.000</span>
+                    <button class="btn-card">Tenho Interesse</button>
+                </div>
+            </article>
 
-      <!-- Card 5 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" alt="GATH Executive">
-          <span class="car-badge">Autônomo</span>
-        </div>
-        <div class="car-body">
-          <h3>GATH Executive</h3>
-          <p class="car-type">Sedan de Luxo Nível Superior</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-robot"></i> Piloto Nível 3</span>
-            <span><i class="fa-solid fa-charging-station"></i> 600 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 410.000</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH Executive', 'R$ 410.000')">Comprar</button>
-          </div>
-        </div>
-      </article>
+            <!-- Carro 2 -->
+            <article class="car-card">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="GATH Horizon - SUV elétrico cinza moderno para toda a família">
+                <div class="car-info">
+                    <h3>GATH Horizon</h3>
+                    <p class="car-type">SUV Familiar</p>
+                    <p class="car-specs">Autonomia: 600 km | 0 a 100 km/h: 4.5s</p>
+                    <span class="price">R$ 340.000</span>
+                    <button class="btn-card">Tenho Interesse</button>
+                </div>
+            </article>
 
-      <!-- Card 6 -->
-      <article class="car-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="GATH Cyber Truck">
-          <span class="car-badge">Heavy Duty</span>
-        </div>
-        <div class="car-body">
-          <h3>GATH Cyber Truck</h3>
-          <p class="car-type">Picape Elétrica Extrema</p>
-          <div class="specs-pills">
-            <span><i class="fa-solid fa-truck-ramp-box"></i> Carga 1.5T</span>
-            <span><i class="fa-solid fa-charging-station"></i> 650 km</span>
-          </div>
-          <div class="card-action">
-            <div class="price-tag">
-              <span class="price-label">A partir de</span>
-              <span class="price-val">R$ 520.000</span>
-            </div>
-            <button class="btn-buy" onclick="openModal('GATH Cyber Truck', 'R$ 520.000')">Comprar</button>
-          </div>
-        </div>
-      </article>
+            <!-- Carro 3 -->
+            <article class="car-card">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="GATH Urban - Hatch compacto elétrico ideal para a cidade">
+                <div class="car-info">
+                    <h3>GATH Urban</h3>
+                    <p class="car-type">Compacto Urbano</p>
+                    <p class="car-specs">Autonomia: 380 km | 0 a 100 km/h: 6.2s</p>
+                    <span class="price">R$ 160.000</span>
+                    <button class="btn-card">Tenho Interesse</button>
+                </div>
+            </article>
 
-    </div>
-  </section>
+            <!-- Carro 4 -->
+            <article class="car-card">
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&q=80" alt="GATH Apex - Superesportivo elétrico de alto desempenho">
+                <div class="car-info">
+                    <h3>GATH Apex GT</h3>
+                    <p class="car-type">Superesportivo</p>
+                    <p class="car-specs">Autonomia: 480 km | 0 a 100 km/h: 2.1s</p>
+                    <span class="price">R$ 620.000</span>
+                    <button class="btn-card">Tenho Interesse</button>
+                </div>
+            </article>
 
-  <!-- BENEFÍCIOS -->
-  <section id="beneficios" class="benefits">
-    <div class="benefits-container">
-      <div class="section-header text-left">
-        <span class="sub-title">POR QUE MUDAR PARA A GATH?</span>
-        <h2>Vantagens da Tecnologia Elétrica</h2>
-      </div>
+            <!-- Carro 5 -->
+            <article class="car-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="GATH Terra - Picape elétrica robusta para todos os terrenos">
+                <div class="car-info">
+                    <h3>GATH Terra</h3>
+                    <p class="car-type">Picape Off-Road</p>
+                    <p class="car-specs">Autonomia: 550 km | Tração 4x4 Integral</p>
+                    <span class="price">R$ 410.000</span>
+                    <button class="btn-card">Tenho Interesse</button>
+                </div>
+            </article>
 
-      <div class="grid-benefits">
-        <div class="benefit-box">
-          <div class="icon-wrap"><i class="fa-solid fa-leaf"></i></div>
-          <h3>Zero Emissões de CO2</h3>
-          <p>Impacto ecológico nulo. Reduza sua pegada de carbono dirigindo veículos abastecidos por energia 100% limpa.</p>
         </div>
-        <div class="benefit-box">
-          <div class="icon-wrap"><i class="fa-solid fa-wallet"></i></div>
-          <h3>Economia de Bateria</h3>
-          <p>O custo para recarregar a bateria equivale a uma redução de até 80% comparado ao abastecimento com combustível.</p>
-        </div>
-        <div class="benefit-box">
-          <div class="icon-wrap"><i class="fa-solid fa-wrench"></i></div>
-          <h3>Baixa Manutenção</h3>
-          <p>Sem troca de óleo, correia dentada ou velas. O motor elétrico reduz drasticamente a necessidade de visitas à oficina.</p>
-        </div>
-        <div class="benefit-box">
-          <div class="icon-wrap"><i class="fa-solid fa-bolt-lightning"></i></div>
-          <h3>Torque Instantâneo</h3>
-          <p>Aceleração contínua e imediata no instante em que você pisa no acelerador, sem trancos e com zero ruído do motor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SOBRE A EMPRESA -->
-  <section id="sobre" class="about">
-    <div class="about-grid">
-      <div class="about-text-content">
-        <span class="sub-title">SOBRE A EMPRESA</span>
-        <h2>A Reivenção do Automóvel Pela GATH</h2>
-        <p>A <strong>GATH Motors</strong> nasceu com uma missão clara: acelerar a transição da mobilidade para um futuro totalmente elétrico, sustentável e conectado.</p>
-        <p>Desenvolvemos nossa própria arquitetura de baterias e sistemas de software embarcado para entregar carros com altíssima autonomia, segurança e sofisticação.</p>
-      </div>
-      <div class="about-img-frame">
-        <img src="https://images.unsplash.com/photo-1558441719-aa34bf52f246?auto=format&fit=crop&w=800&q=80" alt="Supercarregador GATH">
-      </div>
-    </div>
-  </section>
+    <!-- Sobre a Empresa -->
+    <section id="sobre" class="about">
+        <h2>Sobre a GATH</h2>
+        <p>A GATH é pioneira na revolução da mobilidade sustentável. Nossos veículos são projetados para unir tecnologia de ponta, design elegante e emissão zero de carbono, proporcionando uma experiência de condução única para o futuro.</p>
+    </section>
 
-  <!-- MODAL DE COMPRA -->
-  <div id="buy-modal" class="modal" role="dialog" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-      <span class="sub-title">RESERVA DE VEÍCULO</span>
-      <h3 id="modal-car-name">Modelo</h3>
-      <div id="modal-car-price" class="modal-price">R$ 0,00</div>
-
-      <form id="purchase-form" onsubmit="handlePurchase(event)">
-        <div class="input-group">
-          <label for="name">Nome Completo</label>
-          <input type="text" id="name" required placeholder="Ex: Lucas Silva">
+    <!-- Rodapé e Contato -->
+    <footer id="contato" class="footer">
+        <div class="footer-content">
+            <h3>GATH Electric Motors</h3>
+            <p>Email: contato@gathmotors.com | Telefone: (11) 4004-0000</p>
+            <p>&copy; 2026 GATH Motors. Todos os direitos reservados.</p>
         </div>
-        <div class="input-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" required placeholder="seuemail@exemplo.com">
-        </div>
-        <div class="input-group">
-          <label for="phone">Telefone / WhatsApp</label>
-          <input type="tel" id="phone" required placeholder="(00) 00000-0000">
-        </div>
-        <button type="submit" class="btn-primary full-width">Finalizar Pedido</button>
-      </form>
-    </div>
-  </div>
+    </footer>
 
-  <!-- RODAPÉ -->
-  <footer>
-    <div class="footer-wrap">
-      <div class="footer-brand">
-        <a href="#" class="logo"><span class="logo-mark">G</span>ATH<span class="dot">.</span></a>
-        <p>A nova era da mobilidade elétrica premium.</p>
-      </div>
-      <div class="footer-socials">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-    </div>
-    <div class="footer-copy">
-      <p>&copy; 2026 GATH Motors. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
